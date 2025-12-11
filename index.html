@@ -3,14 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Profile</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Luke Clark - Professional Profile</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Global Styles & Resets --- */
+        :root {
+            --primary-font: 'Roboto', sans-serif;
+            --text-dark: #222222;
+            --text-light: #555555;
+            --background-light: #ffffff;
+            --background-mck-blue: #f3f6f9; /* The requested "60%" lighter blue background */
+            --mckinsey-blue-dark: #0076a8; /* Darker McKinsey Blue for main accents */
+            --mckinsey-blue-accent: #0099cc; /* Brighter blue for highlights */
+            --border-color: #d0dbe4; /* Blueish border color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--primary-font);
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-mck-blue); /* Dominant background blue */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+            background-color: var(--background-light); /* Content blocks remain white for contrast */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Typography Helpers --- */
+        .blue-text {
+            color: var(--mckinsey-blue-dark) !important;
+        }
+        .blue-bg {
+            background-color: var(--mckinsey-blue-dark) !important;
+            color: var(--background-light) !important;
+        }
+        .highlight {
+            font-weight: 700;
+            color: var(--mckinsey-blue-accent); /* Highlight key numbers in accent blue */
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--border-color);
+            background-color: var(--background-light);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .header-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--mckinsey-blue-dark);
+        }
+
+        .header-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            margin-left: 20px;
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .header-nav a:hover {
+            color: var(--mckinsey-blue-accent);
+        }
+
+        /* --- Hero Section (Photo, Name, Tagline) --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            padding: 60px 5%;
+            border-bottom: 1px solid var(--border-color);
+            gap: 40px;
+        }
+
+        .photo-placeholder {
+            min-width: 180px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--mckinsey-blue-dark);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.1;
+            color: var(--mckinsey-blue-dark); /* Your Name in Blue */
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--mckinsey-blue-accent) !important;
+        }
+
+        /* --- General Section Styling --- */
+        .section {
+            padding: 40px 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--mckinsey-blue-accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .content-block {
+            margin-bottom: 25px;
+            padding-left: 15px;
+            border-left: 3px solid var(--border-color);
+        }
+
+        .content-block h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .content-block p {
+            color: var(--text-dark);
+        }
+
+        /* --- Achievement Grid --- */
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .achievement-card {
+            background-color: var(--background-mck-blue); /* Subtle blue card background */
+            padding: 25px;
+            border-left: 5px solid var(--mckinsey-blue-dark);
+            border-radius: 4px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .achievement-card h3 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .achievement-card p {
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .achievement-card .description {
+            color: var(--text-light);
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--mckinsey-blue-dark);
+            color: var(--background-light);
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="header-logo">Your Name</div>
+        <div class="header-logo">Luke Clark</div>
         <nav class="header-nav">
             <a href="#about">About</a>
             <a href="#certifications">Certifications</a>
@@ -22,24 +229,24 @@
 
         <section id="hero" class="hero-section">
             <div class="photo-placeholder">
-                <img src="your_photo.jpg" alt="Your Name Professional Photo">
+                <img src="Luke Clark.png" alt="Luke Clark Professional Photo">
             </div>
             <div class="hero-text">
-                <h1>**Your Full Name**</h1>
+                <h1>Luke Clark</h1>
                 <p class="tagline">Aspiring Leader | Focused on Finance & Strategy</p>
-                <a href="#education" class="cta-button **crimson**-bg">View Profile Highlights &rarr;</a>
+                <a href="#education" class="cta-button blue-bg">View Profile Highlights &rarr;</a>
             </div>
         </section>
 
         <section id="education" class="section">
-            <h2 class="section-title">Academic & **Testing**</h2>
+            <h2 class="section-title">Academic & Testing</h2>
             <div class="content-block">
-                <h3 class="**crimson**-text">Standardized Testing</h3>
-                <p><strong>SAT Score:</strong> <span class="highlight">**1520**</span></p>
+                <h3 class="blue-text">Standardized Testing</h3>
+                <p><strong>SAT Score (Date: Dec 7, 2024):</strong> <span class="highlight">1520</span></p>
             </div>
             <div class="content-block">
-                <h3 class="**crimson**-text">University Applications</h3>
-                <p><strong>Ivy League Applications:</strong> 6 total, including **Harvard** (Current Status: Awaiting Decision)</p>
+                <h3 class="blue-text">University Applications</h3>
+                <p><strong>Ivy League Applications:</strong> 6 total, including Harvard (Current Status: Awaiting Decision)</p>
             </div>
         </section>
 
@@ -47,21 +254,22 @@
             <h2 class="section-title">Certifications & Progress</h2>
 
             <div class="achievement-card">
-                <h3 class="**crimson**-text">FINRA Securities Industry Essentials (SIE)</h3>
-                <p><strong>Status:</strong> Completed</p>
-                <p><strong>Score:</strong> 52%</p>
-                <p class="description">Demonstrates foundational knowledge of the securities industry.</p>
+                <h3 class="blue-text">FINRA Securities Industry Essentials (SIE)</h3>
+                <p><strong>Status:</strong> In Progress</p>
+                <p><strong>Completion Date:</strong> November 24, 2025</p>
+                <p><strong>Progress/Readiness:</strong> 52%</p>
+                <p class="description">Developing foundational knowledge of the structure, regulation, and products of the securities industry.</p>
             </div>
 
             <div class="achievement-card">
-                <h3 class="**crimson**-text">Cambridge English **C2 Proficiency**</h3>
-                <p><strong>Status:</strong> Completed</p>
+                <h3 class="blue-text">Cambridge English C2 Proficiency</h3>
+                <p><strong>Completion Date:</strong> September 12, 2025</p>
                 <p><strong>Grade:</strong> Zero Proficiency (C2 Level achieved)</p>
                 <p class="description">Highest level of English certification; masters complex language.</p>
             </div>
 
             <div class="achievement-card">
-                <h3 class="**crimson**-text">B Category Driving License</h3>
+                <h3 class="blue-text">B Category Driving License</h3>
                 <p><strong>Status:</strong> In Progress</p>
                 <p><strong>Progress:</strong> 26 / 80 Required Classes Completed</p>
                 <p class="description">Developing essential skills in vehicle operation and road safety.</p>
@@ -72,7 +280,7 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 **Your Full Name**. All rights reserved.</p>
+        <p>&copy; 2025 Luke Clark. All rights reserved.</p>
     </footer>
 
 </body>
