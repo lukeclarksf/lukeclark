@@ -96,10 +96,10 @@
             min-width: 180px;
             width: 180px;
             height: 180px;
-            border-radius: 50%;
+            border-radius: 4px; /* ADAPTED: Changed from 50% to rectangular */
             overflow: hidden;
-            border: 5px solid var(--mckinsey-blue-dark);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border: none; /* ADAPTED: Removed border */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Adjusted shadow for rectangular look */
         }
 
         .photo-placeholder img {
